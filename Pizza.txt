@@ -1,0 +1,82 @@
+import javax.swing.JOptionPane;
+
+public class Pizza {
+	
+	int toppings, toppingprice, price, amount, netPrice, noOfTopping, size;
+	Pizza(int t, int tp, int p, int a, int nP, int nOT, int s) {
+		toppings = t;
+		toppingprice= tp; 
+		price=p; 
+		amount=a; 
+		netPrice=nP;
+		noOfTopping=nOT;
+		size=s;
+		
+		}//constructor
+	
+	//Generate Getter Setter
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice() {
+		this.price = price;
+		this.size=size;
+		size = Integer.parseInt(JOptionPane.showInputDialog("1=S \n 2 = M \n 3 = L \n 4 = exit(1)"));
+
+		switch(size) {
+
+		   case 1 : price=	199;break;
+
+		   case 2 : price=	299;break;
+
+		   case 3 : price = 399;break;
+		}//switch	
+	
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	
+	public void setAmount() {
+		this.amount=amount;
+		amount = Integer.parseInt(JOptionPane.showInputDialog("Enter Amount"));
+	}
+	
+	
+	public int gettotaltoppingprice() {
+		return toppingprice;
+	}
+
+		
+		public void settoppingprice( ) {
+		this.toppingprice = toppingprice;
+		
+		toppings = Integer.parseInt(JOptionPane.showInputDialog("1=Pepperoni \n 2 = Ham \n 3 = Cheese \n 4 = exit(1)"));
+		noOfTopping = Integer.parseInt(JOptionPane.showInputDialog("Enter number of toppings"));
+		switch(toppings) {
+
+		   case 1 : toppingprice= 45*noOfTopping;break;
+
+		   case 2 : toppingprice = 40*noOfTopping;break;
+
+		   case 3 : toppingprice = 35*noOfTopping;break;
+		}//switch	
+	}
+	
+	public void calCost() {
+		netPrice = (price *amount)+toppingprice;
+	}//calCost
+	
+	public String getDescription() {
+		String sizeShow;
+		sizeShow = JOptionPane.showInputDialog("Confirm Size S M L");
+		String line = "\n", output="";
+		output += "Size : " + sizeShow + line + "Number of Toppings : " + noOfTopping + line + "Amount : " + amount + line;
+		output += "Total Cost : " + netPrice; 
+	return output;	
+	}
+	}//class
+	
+	
