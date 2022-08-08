@@ -1,0 +1,58 @@
+
+public class Employees {
+		public String name;
+		public float salary;
+
+	Employees(String n, float s) {
+		name =n ;
+		salary =s;
+	}
+	
+	public String toSting() {
+		return name  + name + salary  + salary ;
+	}
+	class Manager extends Employee {
+		String department;
+		Manager(String n, Float s, String d) {
+			super(n, s);
+			 TODO Auto-generated constructor stub
+			department=d;
+		}
+		
+		public String toString(String n, int y, String d) {
+			String output = super.toString();
+			return output + department  + department;
+		}
+				
+	}
+	class Executive extends Manager {
+		
+		Executive(String n, float s, String d) {
+			super(n, s,d);
+			 TODO Auto-generated constructor stub
+		}
+
+		public String toString(String n, int y, float s) {
+			return super.toString();
+}		
+	}
+	
+	public static void main(String[] args) { 
+		Employees obj1 = new Employees(M,35000.0f);
+		Employees obj2 =  Manager(G, 45000.0f, IT);
+		Executive obj3 = Executive(Z, 55000.0f, Finance);
+		System.out.println(obj1.toString());
+		System.out.println(obj2.toString());
+		System.out.println(obj3.toString());
+	} main
+
+	private static Employees.Executive Executive(String string, float f, String string2) {
+		 TODO Auto-generated method stub
+		return null;
+	}
+
+	private static Employees Manager(String string, float f, String string2) {
+		 TODO Auto-generated method stub
+		return null;
+	}
+	}Class
