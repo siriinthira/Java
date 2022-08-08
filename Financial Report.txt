@@ -1,0 +1,154 @@
+import java.util.Scanner;
+
+public class FinancialReport {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String msg="";
+		msg += "1. Income 3 years after graduation \n" +
+			   "2. Monthly Expenses 3 after graduation \n" +
+			   "3. Income 5 years later" + " 4.Monthly Expense 5 years later \n" +
+			   "5. Income 2 years later " + "6. Monthly Expense 2 years later \n" +
+			   "7. Total Debt \n" + "8. Total Assets \n" + "9. Monthly Retirement Spending\n" +
+			   "10. New Assets";
+		
+		System.out.println("Enter your Information " +"\n" +msg);
+		Scanner x = new Scanner(System.in);
+		double income = x.nextDouble();
+	    
+		Scanner w = new Scanner(System.in);
+		Long expenses = w.nextLong(); //Include taxes
+		
+		Scanner a = new Scanner(System.in);
+		double income2 = a.nextDouble();
+	    
+		Scanner b = new Scanner(System.in);
+		Long expenses2 = b.nextLong(); //Include taxes
+		
+		Scanner c = new Scanner(System.in);
+		double income3 = c.nextDouble();
+	    
+		Scanner d = new Scanner(System.in);
+		Long expenses3 = d.nextLong(); //Include taxes
+		
+		Scanner y = new Scanner(System.in);
+		float debt = y.nextFloat();	//Liabilities
+		
+		Scanner z = new Scanner(System.in);
+		int assets = z.nextInt();
+		
+		Scanner v = new Scanner(System.in);
+		Long monthlyRetireExpense = v.nextLong(); //Include possible taxes
+		
+		Scanner u = new Scanner(System.in);
+		Long newAssetMinusDebt = u.nextLong(); //Include possible taxes
+		
+		
+		
+		float retirementSavingGoal = monthlyRetireExpense*(12*35); //Retire at 65 Expected Years of Death : 100 y/o, 100-65=35 y
+		float networth = assets-debt;
+		float debt2AssetsRatio = debt/assets;
+		double monthlySavings = income - expenses;
+		double monthlySavings2 = income2 - expenses2;
+		double monthlySavings3 = income3 - expenses3;
+		double investmentBudget = 0.1*(monthlySavings*12);
+		
+		String status="";
+		if (networth<0) {
+			status="You are in debt, you need to take action towards this problem"; }
+			else if (networth>0 && networth<=153200) {
+			status = "You have no debt and You're in lower class"; } //Impoverished 
+			else if (networth>153200 && networth<=930300) {
+				status = "You have no debt and you're in lower middle class"; }
+			else if (networth>930300 && networth<=2687500) {
+				status = "Keep Going! You have no debt and you're in middle class"; }
+			else if (networth>2687500 && networth<=5059215) {
+				status ="Good! You have no debt and you're in upper middle class"; }
+			else if (networth>5059215 && networth<14995422 )
+				status ="Incredible! You are in between upper middle class and wealthy class";
+			else if(networth>=14995422) {
+				status = "Congratulations! You're absolutely wealthy!";
+			}
+	
+	
+	
+	 
+		/*10% Investment Account //30% Retirement Account //30% Emergency //20% Shopping or Fixing Costs (Sample Savings Ratio1)
+		 10% Traveling Budget */
+	 
+	 
+		double threeYearsSavings; //works as a newGrad within 3 years
+		 threeYearsSavings = (monthlySavings*12*3);
+		double fiveYearsSavings; //works as a senior
+		 fiveYearsSavings = (monthlySavings2*12*5);
+		double twoYearsSavings; //works as a manager assist or a manager
+		twoYearsSavings = (monthlySavings3*12*2); // multiplied 0.9 means that you're not including your investment budget here
+		double total10YSavings;
+		total10YSavings = threeYearsSavings + fiveYearsSavings + twoYearsSavings;
+		
+		
+		double investBudget10Y = 0.1*total10YSavings;
+		
+		double retirementAcc10Y = 0.3*total10YSavings;
+
+		double retireProgress =  (retirementAcc10Y/retirementSavingGoal)*100;
+		double Later25Y = (total10YSavings*2.5);
+		double newRetireSaving= Later25Y + retirementAcc10Y;
+		double RetireProgress25YL8 = ((newRetireSaving)/retirementSavingGoal)*100; //retirement savings in 35 years
+		double retireExpense = (newRetireSaving)/(12*35);
+		
+		double newNetworth = retirementAcc10Y+newAssetMinusDebt; //not include investment return
+		
+		String newStatus="";
+		if (newNetworth<0) { //use as current savings
+			newStatus="You are in debt, you need to take action towards this problem"; }
+			else if (newNetworth>0 && newNetworth<=153200) {
+			newStatus = "You have no debt and You're in lower class"; } //Impoverished 
+			else if (newNetworth>153200 && newNetworth<=930300) {
+			newStatus = "You have no debt and you're in lower middle class"; }
+			else if (newNetworth>930300 && newNetworth<=2687500) {
+			newStatus = "Keep Going! You have no debt and you're in middle class"; }
+			else if (newNetworth>2687500 && newNetworth<=5059215) {
+			newStatus ="Good! You have no debt and you're in upper middle class"; }
+			else if (newNetworth>5059215 && newNetworth<14995422 )
+			newStatus ="incredible! You are in between upper middle class and wealthy class";
+			else if(newNetworth>=14995422) {
+			newStatus = "Congratulations! You're absolutely wealthy!";
+			}
+		
+	 	String output = "", line="\n"; 
+	 	output += "Personal Wealth Estimation Report \n";
+	 	
+		output += "Your Networth Calculation is : " + networth + " THB." + line;
+		output += "Your Status is : " + status + line;
+		output += "Your Debt to Assets Ratio is : " + debt2AssetsRatio + line;
+		output += "Your Monthly Savings is : " + monthlySavings + " THB." + line;
+		output += "Your Yearly Investment Budget is : " + investmentBudget + " THB." + line;
+		output += "Three Years Savings - New Graduate : " + threeYearsSavings  + " THB." + line;
+		output += "Five Years Savings - Senior : " + fiveYearsSavings  + " THB." + line;
+		output += "Two Years Savings - Manager/Manager Assistant : " + twoYearsSavings  + " THB." + line;
+		output += "Your Possible Savings in the next 10 years : " + total10YSavings + " THB." + line;
+		output += "Total Investment Budget in 10 years : " + investBudget10Y + " THB." + line;
+		output += "Your Retirement Account Value 10 Years Later: " + retirementAcc10Y + " THB." + line;
+		output += "Your Retirement Savings Goal : " + retirementSavingGoal + " THB." + line;
+		output += "Your Retirement Savings Progress 10 Years Later : " + retireProgress + "% \n";
+		output += "25 Years Later... Your New Total Savings Could Reach : " + Later25Y + " THB. " + line ;
+		output += "Your Retirement Progress after 35 years is : " +  RetireProgress25YL8 +"%" + line;
+		output += "You can spend X baht per month only : " + retireExpense +"THB." + line;
+		output += "Your Current Status after 10 years : " + newStatus + line;
+	
+		System.out.println(output);	
+	}//main
+}//class
+
+//		String summary="";
+//		summary ="Summary : Having one job is never enough, "
+//				+ "you should learn investment and "
+//				+ "find a new part-time job to increase your income"
+//				+ "your new part-time job should base upon your skill set and earn at least 1/3 of your current job";
+
+//		System.out.println(output + summary);
+	
+	
+		
