@@ -1,0 +1,37 @@
+import javax.swing.JOptionPane;
+
+public class PhoneException {
+	public static void main (String [] args) {
+		String input, output="", notDigit="";
+		char c; int countChar=0;
+		
+		//Receive a string data from keyboard and store it in output variable
+		input = JOptionPane.showInputDialog("Enter Phone Number");
+		output += "You enter : " + input +"\n";
+		
+		try {
+		//Check each of digit inside input variable in that order
+		for(int i=0; i<=input.length();i++) {
+			c = input.charAt(i);
+			
+		//If find a character a b c then count and continue to count	: in case that "c" is not a digit
+			if(!Character.isDigit(c)) {
+			countChar++;	
+			
+		//Add all non-digit characters will be stored in this variable called notChar
+			notDigit += c + " ";
+			
+			}//if
+		}//for
+		//If finds a character then call exception method
+		if (countChar!=0) 
+			throw new Exception();
+		//Method in catch will run 
+		} catch (Exception e) {
+			output += "Your Phone Number contains Digit: " + "\n" + "There are " + countChar + " Characters :" + "\n" + notDigit;
+		}//catch
+		//Show output
+		JOptionPane.showMessageDialog(null, output);
+		
+	}//main
+}//class
