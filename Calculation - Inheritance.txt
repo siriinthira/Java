@@ -1,0 +1,78 @@
+import javax.swing.*;
+public class Calculation {
+
+	double x, y, w, z;
+	
+	public double addition() {
+		double sumresult = x+y;
+		String output="";
+		output = output + sumresult;
+	//	JOptionPane.showMessageDialog(null, "Addition result is: " + output);
+		return sumresult;
+	}
+	
+//	public double addition(double x, double y) {
+//		double sumresult = x+y;	}
+//	public double subtraction(double w, double z) {
+//		double subresult = w-z;
+//		return subresult;}
+	
+	public double subtraction() {
+		double subresult = w-z;
+		String output = "";
+		output = output+subresult;
+	//	JOptionPane.showMessageDialog(null, "Subtraction result is: " + output);
+		return subresult;
+	}
+	
+	
+}//class
+
+
+
+
+
+
+
+
+
+
+
+import javax.swing.JOptionPane;
+
+public class CalculationTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Calculation add = new Calculation();
+		Calculation sub = new Calculation();
+		
+		//variables that are initialized  obj.variable
+		add.x = Double.parseDouble(JOptionPane.showInputDialog(null," Enter 1st Number : "));
+		add.y = Double.parseDouble(JOptionPane.showInputDialog(null," Enter 2nd Number : "));
+	    sub.w = Double.parseDouble(JOptionPane.showInputDialog(null," Enter 3rd Number : "));
+	    sub.z = Double.parseDouble(JOptionPane.showInputDialog(null," Enter 4th Number : "));   
+	    //obj.method
+//	    add.addition();
+//	    sub.subtraction();
+	    
+	    String output = "", line ="\n";
+	    output = output +  "First Number : " + add.x + line;
+	    output = output +  "Second Number : " + add.y + line;
+	    output = output +  "Third Number : " + sub.w + line;
+	    output = output +  "Fourth Number : " + sub.z + line;
+	    output = output + "Addition result : " + add.addition() + line + "Subtraction result : " + sub.subtraction();
+	    JOptionPane.showMessageDialog(null, output);
+	    //	    output = output + "First Number : " + add.x + line;
+//	    output = output + "Second Number : " + add.y + line;
+//	    output = output + "Third Number : " + sub.w + line;
+//	    output = output + "Fourth Number : " + sub.z;
+//	    JOptionPane.showMessageDialog(null, output);
+	    
+//		System.out.println(add.addition(7, 8));
+//		System.out.println(	sub.subtraction(145,11.12));
+
+	    //use child n parent lab as reference for next practice
+	}
+}
