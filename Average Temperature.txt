@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class AverageTemperature {
+
+	public static void main(String[] args) {
+		Scanner x = new Scanner(System.in);	
+		System.out.println("Enter 7 temperatures: ");
+		
+		int sum=0, temp=0;
+
+		for(int count=0; count<7; count++)
+		temp = x.nextInt();
+		sum =sum +temp;
+		
+    	int average = sum/7;
+    	System.out.println(average);
+}
+}
+	
+	
