@@ -1,0 +1,29 @@
+//import javax.swing.*;
+import java.util.Scanner;
+public class CircleCalculator {
+
+	Scanner x = new Scanner(System.in);
+    double radius = x.nextDouble();
+	
+//	CircleCalculator(float r){
+//		 radius = r; // Constructor สามารถกำหนดค่า รัศมี ได้ตามต้องการ is use to define a variable value
+//	}
+	
+		
+	double getArea() 
+	{		return (Math.PI*radius*radius); }
+	double getCircumference()
+	{	    return (Math.PI*2*radius);	}	
+
+	public static void main(String[] args) {
+		CircleCalculator objCircle = new CircleCalculator();	
+		System.out.println(objCircle.getArea());
+		System.out.println(objCircle.getCircumference());
+		//JOptionPane.showMessageDialog(null,objCircle.getArea());
+		//JOptionPane.showMessageDialog(null,objCircle.getCircumference());
+	
+	}
+	
+}//class
+
+	
