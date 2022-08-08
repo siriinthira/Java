@@ -1,0 +1,28 @@
+package staticproject;
+
+public class Company {
+
+	// TO DO - Static from borntodev
+	private static String name ="AA"; //add static - variable data on class level
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	 public static void main(String[] args) {
+		 Company company = new Company();
+		 company.setName("BB");
+		 company.getName();
+		 
+		 Company company2 = new Company();
+		 company2.setName("CC");
+		 company2.getName();
+	 
+		 Company.name = "dsadas"; //add a static: static String name="AA";
+		 System.out.println(Company.name); //only one company name in this class
+	 }//main
+}//class
