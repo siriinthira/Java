@@ -1,0 +1,21 @@
+import javax.swing.JOptionPane;
+
+public class PizzaOrder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Pizza objPizza = new Pizza(2,30, 399,1,429,1,3);	
+		objPizza.setPrice();
+		objPizza.getPrice();
+		objPizza.setAmount();
+		objPizza.getAmount();
+		objPizza.settoppingprice();
+		objPizza.gettotaltoppingprice();
+		objPizza.calCost();
+	//	System.out.println(objPizza.getDescription());
+		String msg="";
+		msg += objPizza.getDescription();
+		JOptionPane.showMessageDialog(null, msg);
+	}//main	
+	
+}//class
