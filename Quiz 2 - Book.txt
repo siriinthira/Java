@@ -1,0 +1,73 @@
+import javax.swing.JOptionPane;
+public class Book {
+
+	int code, totalbook;
+	float price, day;
+	String name, output="";
+	float netPrice;
+	
+	 Book(float p, int c, float d, String n) {
+	code=c;
+	price=p;
+	day=d;
+	name=n;
+	
+	}//constructor
+	 
+	 void inputData() {
+		 code = Integer.parseInt(JOptionPane.showInputDialog("Enter code"));
+		 day = Float.parseFloat(JOptionPane.showInputDialog("Enter number of days"));
+		 name = JOptionPane.showInputDialog("Enter Book Title");
+		 
+	 }//inputData method
+	 
+	 void setPrice(){
+		 this.price = price;
+		 price = Float.parseFloat(JOptionPane.showInputDialog("Enter price"));
+	}//setPrice method
+	 
+	 void calculate() {
+		 //int totalbook;
+		 totalbook = Integer.parseInt(JOptionPane.showInputDialog("Enter Number of Books"));
+		 if(totalbook>=5)
+		netPrice = (price*totalbook*day*0.9f);
+		 else
+		netPrice = (price*totalbook*day);
+	 }//calculate method
+	 
+	 String writeOutput() {
+		 String output = "", line="\n";
+		 output = output + "code : " + code + line + "Name : " + name + line + "Price per day : " + price + line + 
+				 "Total Borrowed Days : " + day + line + "Total Books : " + totalbook + line +"Netprice : " + netPrice; 
+	 return output;
+	 }
+}//Class
+
+
+
+
+
+
+
+
+
+
+import javax.swing.JOptionPane;
+
+public class NewBook {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+			Book objBook = new Book(99.99f,1115,2.0f,"ABC");
+			objBook.inputData();
+			objBook.setPrice();
+			objBook.calculate();
+		
+		String message="";
+		message = message + objBook.writeOutput();
+		JOptionPane.showMessageDialog(null, message);
+	}//main
+	
+
+}//class
