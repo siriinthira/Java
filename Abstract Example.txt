@@ -1,0 +1,68 @@
+
+public class AbstractExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Animals animal = new Animals(); we cannot generate an object from abtract class
+		Animals animal = new Hippo();
+		animal.eat();
+		animal.walk();
+		Animals dog = new Dog();
+		dog.walk();
+	}
+
+}
+
+
+
+
+
+
+
+	public abstract class Animals{//abtract class cannot be generate as an object 
+		
+		//declare variables and create two method - one defined method and one undefined method 
+		private String name;
+		private String dnaCode;
+		
+		public void eat() {
+			System.out.println("Status : Eating");
+		}
+
+		public abstract void walk();	
+	
+	}
+	
+	
+
+
+
+
+
+
+public class Dog extends Animals {
+
+	@Override
+	public void walk() {
+		System.out.println("Walking : 1.5 m");
+		
+	}
+
+}
+
+
+
+
+
+
+
+public class Hippo extends Animals{
+
+		@Override
+		public void walk() {	
+		System.out.println("Walking : 1 m");
+	}//method
+}
+
+
+
