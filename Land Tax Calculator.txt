@@ -1,0 +1,57 @@
+
+import javax.swing.JOptionPane;
+public class TaxCalculator4Land {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		double condoValue;	
+		double LandTax = 0; //tax in one year
+		String input="", output="";	
+		
+		
+		input = JOptionPane.showInputDialog("Enter Condo Value");
+		condoValue = Double.parseDouble(input);
+
+		if(condoValue<10000000) {    //0%
+			LandTax = 0.0d;
+		} else if (condoValue>=10000000 && condoValue<50000000) { //2%
+			LandTax = 0.02d*condoValue; 
+		} else if(condoValue>=50000000 && condoValue<75000000) { //3%
+			LandTax = 0.03d*condoValue; 
+		} else if(condoValue>=75000000 && condoValue<100000000) { //5%
+			LandTax = 0.05d*condoValue; 
+		} else if(condoValue>=100000000) { //10%
+			LandTax = 0.10d*condoValue; 
+		}
+		
+		
+		double netIncome; //average monthly income from your property
+		double PropertyFlow; //one year earning
+		double month, netProfit, CondoSalePrice;
+		
+		month = Double.parseDouble(JOptionPane.showInputDialog("Enter Total Months of Earnings"));
+		netIncome = Double.parseDouble(JOptionPane.showInputDialog("Enter Average Montly Income from this Property"));
+		CondoSalePrice = Double.parseDouble(JOptionPane.showInputDialog("How much should you sell your condo?")); //did not show cost estimation process
+		
+		PropertyFlow = netIncome*month;
+		netProfit = PropertyFlow - LandTax;
+		
+		output += "Propety Tax : " + LandTax + " THB." +"\n";
+		output += "1 Year Earnings : " + PropertyFlow +" THB." + "\n";
+		output += "Total Profits : " + netProfit +" THB.";		
+		
+		JOptionPane.showMessageDialog(null, output);
+		
+	
+		//Let's use while loop and continue input y/n? later
+		
+//		float cal = 0.03f*75000000;
+//			System.out.println(cal);
+//			int a=1,b=7;
+//			int max, min;
+//			max = (a > b) ? a : b;
+//			min = (a < b) ? a : b;
+//			System.out.println(max+" , "+min);
+		}
+}
