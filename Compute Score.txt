@@ -1,0 +1,118 @@
+package ScorePackage;
+import javax.swing.*;
+
+	public class ComputeScore {
+
+
+	static float midS, finS, quizS; 
+	
+	static float m,f,q,total;
+	
+	static String output="";
+	
+    public static void inputScore() {
+    	
+    	midS = input_MorF("midterm 0-100");
+    	quizS = intput_Quiz("quiz 0-60");
+    	finS = input_MorF("final 0-100");
+    }
+	
+//	public static void main(String[] args) {
+	
+	static float input_MorF(String msg) 
+	{
+		float score;
+		while (true) {
+			
+			 score = Float.parseFloat(JOptionPane.showInputDialog("input " + msg));
+			if (score<0 || score>100)
+				continue;
+			else
+				return score;
+			
+		}//whilelloop
+		
+	}//methodmidtermorfinal
+	
+	static float intput_Quiz(String msg) {
+		
+		float score;
+		while (true) {
+			score = Integer.parseInt(JOptionPane.showInputDialog("input " + msg));
+			 if(score<0 || score>60)
+				 continue;
+			 else
+				 return score;
+			
+		}
+	}//method4quiz
+	
+	public static void computePercent() {
+		
+		m = computeMidterm(midS);
+		f = computeFinal(finS);
+		q = computeQuiz(quizS);
+		
+		total = m + f + q; //totalscore from 0 to 100		
+	}
+	
+	
+	public static float computeMidterm(float score) {
+		
+	float mid = 20f * score/100f;
+	return mid;
+	}
+	
+	public static float computeFinal(float score) {
+		
+	float fin = 40f * score/100f;
+	return fin;	
+	
+	}
+	
+	public static float computeQuiz(float score) {
+		
+		float quiz = 40f * score/100f;
+		return quiz;	
+		
+		}
+	
+	
+	public static void printOutput() {
+		
+		output += "Midterm " + midS + " ==> " + m + "%\n";
+		output += "Final " + finS + " ==> " + f + "%\n";
+		output += "Quiz " + quizS + " ==> " + q + "%\n";
+		output += "total " + (midS+finS+quizS) + " ==> " + total + "%\n";
+	
+		String grade = calculateGrade(total);
+		output += "Grade :" + grade; 
+	
+	JOptionPane.showMessageDialog(null, output);
+	}
+	
+	
+	
+	public static String calculateGrade(float total) //Grade result 
+	{
+	String grade="";
+	
+	if (total>75f)
+		grade = "A";
+	else if (total>70f)
+		grade = "B+";	
+	else if (total>65f)
+		grade = "B";	
+	else if (total>60f)
+		grade = "C+";
+	else if (total>55f)
+		grade = "C";
+	else if (total>50f)
+		grade = "D+";
+	else 
+		grade = "D";	
+	
+	return grade;
+	}//method
+	}//class
+
